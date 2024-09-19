@@ -23,16 +23,16 @@ public class Tester {
         String currentDirectory = Paths.get("").toAbsolutePath().toString();
         String filename = "/src/main/java/assignment_one/titles.csv";
         Path filePath = Paths.get(currentDirectory, filename);
-        // String[][] parsedData = CsvParser.parseCsv(filePath.toString());
+        String[][] parsedData = CsvParser.parseCsv(filePath.toString());
 
-        String[][] parsedData = {
-                { "Professor", "Isaac", "Newton", "Physics", "6" },
-                { "TA", "Marie", "Curie", "Physics", "6" },
-                { "Professor", "Isaac", "Newton", "Calculus", "4" },
-                { "Student", "Amy", "Adams", "Calculus", "4" },
-                { "Student", "Will", "Smith", "Calculus", "4" },
-                { "Student", "Brad", "Pitt", "Physics", "6" }
-        };
+        // String[][] parsedData = {
+        // { "Professor", "Isaac", "Newton", "Physics", "6" },
+        // { "TA", "Marie", "Curie", "Physics", "6" },
+        // { "Professor", "Isaac", "Newton", "Calculus", "4" },
+        // { "Student", "Amy", "Adams", "Calculus", "4" },
+        // { "Student", "Will", "Smith", "Calculus", "4" },
+        // { "Student", "Brad", "Pitt", "Physics", "6" }
+        // };
 
         System.out.println(parsedData.length);
 

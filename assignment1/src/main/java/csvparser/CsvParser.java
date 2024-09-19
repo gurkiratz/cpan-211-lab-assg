@@ -11,15 +11,12 @@ public class CsvParser {
     List<String[]> data = new ArrayList<>();
 
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-      // Skip the header line
-      br.readLine();
+      // Do not skip the header line
+      // br.readLine();
 
       String line;
       while ((line = br.readLine()) != null) {
-        String[] values = line.split("\t");
-        for (int i = 0; i < values.length; i++) {
-          values[i] = values[i].trim().replaceAll("^\"|\"$", "");
-        }
+        String[] values = line.split(",");
         data.add(values);
       }
     } catch (IOException e) {

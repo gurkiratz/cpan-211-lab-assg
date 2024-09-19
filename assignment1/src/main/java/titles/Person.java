@@ -20,7 +20,7 @@ public abstract class Person implements ParticipateHours {
     }
 
     public String toString() {
-        return title + " " + firstName + " " + lastName + " " + getParticipatingHours(courseHours);
+        return title + " " + firstName + " " + lastName + " " + subject + " " + getParticipatingHours(courseHours);
     }
 
     public static int getLabHours(int courseHours) {
