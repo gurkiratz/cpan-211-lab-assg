@@ -1,9 +1,7 @@
 package titles;
 
-/**
- *
- * @author Riley
- */
+import assignment_one.ParticipateHours;
+
 public abstract class Person implements ParticipateHours {
     protected String title;
     protected String firstName;
@@ -26,8 +24,4 @@ public abstract class Person implements ParticipateHours {
     public static int getLabHours(int courseHours) {
         return courseHours > 4 ? 2 : 1;
     }
-}
-
-interface ParticipateHours {
-    int getParticipatingHours(int courseHours);
 }
