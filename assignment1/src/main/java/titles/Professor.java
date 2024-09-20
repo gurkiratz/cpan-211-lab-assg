@@ -1,7 +1,7 @@
 package titles;
 
 public class Professor extends Person {
-    public int totalHours;
+    private int totalHours;
 
     public Professor(String title, String firstName, String lastName, String subject, int courseHours) {
         super(title, firstName, lastName, subject, courseHours);
