@@ -1,7 +1,8 @@
 package assignment_one;
 
 public interface ParticipateHours {
-    
-    int getParticipatingHours(int courseHours);
-    
+
+    static int getParticipatingHours(int courseHours) {
+        return courseHours;
+    }
 }
