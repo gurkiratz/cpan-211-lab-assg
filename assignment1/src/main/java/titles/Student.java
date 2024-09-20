@@ -8,10 +8,6 @@ public class Student extends Person {
         this.totalHours = getParticipatingHours(courseHours);
     }
 
-    public int getParticipatingHours() {
-        return courseHours;
-    }
-
     public int getParticipatingHours(int courseHours) {
         return courseHours;
     }

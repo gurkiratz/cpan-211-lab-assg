@@ -8,11 +8,6 @@ public class Professor extends Person {
         this.totalHours = getParticipatingHours(courseHours);
     }
 
-    public int getParticipatingHours() {
-        int lectureHours = this.courseHours - getLabHours(this.courseHours);
-        return lectureHours;
-    }
-
     public int getParticipatingHours(int courseHours) {
         int lectureHours = courseHours - (courseHours > 4 ? 2 : 1);
         return lectureHours;
