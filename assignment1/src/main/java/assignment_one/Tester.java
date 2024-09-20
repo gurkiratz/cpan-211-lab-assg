@@ -14,44 +14,49 @@ public class Tester {
         Path filePath = Paths.get(currentDirectory, filename);
         String[][] parsedData = CsvParser.parseCsv(filePath.toString());
 
-        // String[][] parsedData = {
-        // { "Professor", "Isaac", "Newton", "Physics", "6" },
-        // { "TA", "Marie", "Curie", "Physics", "6" },
-        // { "Professor", "Isaac", "Newton", "Calculus", "4" },
-        // { "Student", "Amy", "Adams", "Calculus", "4" },
-        // { "Student", "Will", "Smith", "Calculus", "4" },
-        // { "Student", "Brad", "Pitt", "Physics", "6" }
-        // };
-
-        System.out.println(parsedData.length);
-
         Person[] people = new Person[parsedData.length];
-        for (int i = 0; i < parsedData.length; i++) {
-            String[] row = parsedData[i];
+        int count = 0; // To keep track of the actual number of people
+
+        for (String[] row : parsedData) {
             String title = row[0];
             String firstName = row[1];
             String lastName = row[2];
             String subject = row[3];
             int courseHours = Integer.parseInt(row[4]);
 
-            switch (title) {
-                case "Professor":
-                    people[i] = new Professor(title, firstName, lastName, subject, courseHours);
+            boolean found = false;
+
+            // Check if the person already exists
+            for (int j = 0; j < count; j++) {
+                if (people[j].firstName.equals(firstName) && people[j].lastName.equals(lastName)) {
+                    people[j].setTotalHours(courseHours);
+                    found = true;
                     break;
-                case "TA":
-                    people[i] = new TA(title, firstName, lastName, subject, courseHours);
-                    break;
-                case "Student":
-                    people[i] = new Student(title, firstName, lastName, subject, courseHours);
-                    break;
-                default:
-                    System.out.println("Invalid title");
-                    break;
+                }
+            }
+
+            // If the person does not exist, create a new person
+            if (!found) {
+                switch (title) {
+                    case "Professor":
+                        people[count++] = new Professor(title, firstName, lastName, subject, courseHours);
+                        break;
+                    case "TA":
+                        people[count++] = new TA(title, firstName, lastName, subject, courseHours);
+                        break;
+                    case "Student":
+                        people[count++] = new Student(title, firstName, lastName, subject, courseHours);
+                        break;
+                    default:
+                        System.out.println("Invalid title");
+                        break;
+                }
             }
         }
 
-        for (Person person : people) {
-            System.out.println(person.toString());
+        // Print the final output
+        for (int i = 0; i < count; i++) {
+            System.out.println(people[i]);
         }
     }
 
