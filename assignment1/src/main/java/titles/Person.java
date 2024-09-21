@@ -31,11 +31,18 @@ public abstract class Person implements ParticipateHours {
         return courseHours > 4 ? 2 : 1;
     }
 
+    @Override
+    public int getParticipatingHours(int courseHours) {
+        return courseHours;
+    }
+
     public int getTotalHours() {
         return totalHours;
     }
 
-    public abstract void setTotalHours(int courseHours);
+    public void setTotalHours(int courseHours) {
+        this.totalHours += getParticipatingHours(courseHours);
+    }
 
     public String toString() {
         return title + " - " + firstName + " " + lastName + " - Total hours -> "
