@@ -28,7 +28,7 @@ public class Tester {
 
             // Check if the person already exists
             for (int j = 0; j < count; j++) {
-                if (people[j].firstName.equals(firstName) && people[j].lastName.equals(lastName)) {
+                if (people[j].getFirstName().equals(firstName) && people[j].getLastName().equals(lastName)) {
                     people[j].setTotalHours(courseHours);
                     found = true;
                     break;

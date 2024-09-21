@@ -1,26 +1,16 @@
 package titles;
 
 public class Professor extends Person {
-    public int totalHours;
+    private int totalHours;
 
     public Professor(String title, String firstName, String lastName, String subject, int courseHours) {
         super(title, firstName, lastName, subject, courseHours);
-        this.totalHours = getParticipatingHours(courseHours);
+        super.setTotalHours(courseHours);
     }
 
     public int getParticipatingHours(int courseHours) {
-        int lectureHours = courseHours - (courseHours > 4 ? 2 : 1);
+        int lectureHours = courseHours - getLabHours(courseHours);
         return lectureHours;
-    }
-
-    @Override
-    public void setTotalHours(int courseHours) {
-        this.totalHours += getParticipatingHours(courseHours);
-    }
-
-    @Override
-    public int getTotalHours() {
-        return totalHours;
     }
 
 }
