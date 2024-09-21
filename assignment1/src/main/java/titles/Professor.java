@@ -9,7 +9,7 @@ public class Professor extends Person {
     }
 
     public int getParticipatingHours(int courseHours) {
-        int lectureHours = courseHours - (courseHours > 4 ? 2 : 1);
+        int lectureHours = courseHours - getLabHours(courseHours);
         return lectureHours;
     }
 

@@ -9,7 +9,7 @@ public class TA extends Person {
     }
 
     public int getParticipatingHours(int courseHours) {
-        return courseHours > 4 ? 2 : 1;
+        return getLabHours(courseHours);
     }
 
     @Override

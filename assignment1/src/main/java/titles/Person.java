@@ -7,7 +7,7 @@ public abstract class Person implements ParticipateHours {
     private String firstName;
     private String lastName;
     private String subject; // Not being used in the code and final output
-    private int courseHours; // Not being used in abstract class. TODO: Move to just be in subclasses?
+    private int courseHours; // Not being used in abstract class, but common in all current subclasses
     private int totalHours;
 
     public Person(String title, String firstName, String lastName, String subject, int courseHours) {
@@ -25,6 +25,10 @@ public abstract class Person implements ParticipateHours {
     
     public String getLastName() {
         return lastName;
+    }
+
+    public static int getLabHours(int courseHours) {
+        return courseHours > 4 ? 2 : 1;
     }
 
     public int getTotalHours() {
