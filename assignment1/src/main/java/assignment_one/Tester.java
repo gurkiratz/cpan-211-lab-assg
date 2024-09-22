@@ -15,7 +15,7 @@ public class Tester {
         String[][] parsedData = CsvParser.parseCsv(filePath.toString());
 
         Person[] people = new Person[parsedData.length];
-        int count = 0; // To keep track of the actual number of people
+        int count = 0; 
 
         for (String[] row : parsedData) {
             String title = row[0];
@@ -26,10 +26,10 @@ public class Tester {
 
             boolean found = false;
 
-            // Check if the person already exists
+            // Condition to check if the person already exist
             for (int j = 0; j < count; j++) {
                 if (people[j].getFirstName().equals(firstName) && people[j].getLastName().equals(lastName)) {
-                    people[j].setTotalHours(courseHours);
+                    people[j].addCourseHours(courseHours);
                     found = true;
                     break;
                 }
@@ -39,13 +39,19 @@ public class Tester {
             if (!found) {
                 switch (title) {
                     case "Professor":
-                        people[count++] = new Professor(title, firstName, lastName, subject, courseHours);
+                        people[count] = new Professor(firstName, lastName, subject);
+                        people[count].addCourseHours(courseHours); 
+                        count++;
                         break;
                     case "TA":
-                        people[count++] = new TA(title, firstName, lastName, subject, courseHours);
+                        people[count] = new TA(firstName, lastName, subject);
+                        people[count].addCourseHours(courseHours); 
+                        count++;
                         break;
                     case "Student":
-                        people[count++] = new Student(title, firstName, lastName, subject, courseHours);
+                        people[count] = new Student(firstName, lastName, subject);
+                        people[count].addCourseHours(courseHours); 
+                        count++;
                         break;
                     default:
                         System.out.println("Invalid title");
@@ -54,7 +60,7 @@ public class Tester {
             }
         }
 
-        // Print the final output
+        // Prints the final output
         for (int i = 0; i < count; i++) {
             System.out.println(people[i]);
         }

@@ -3,32 +3,45 @@ package titles;
 import assignment_one.ParticipateHours;
 
 public abstract class Person implements ParticipateHours {
-    private String title;
+    
+    // Declaring variables as private for encapsulation purposes
     private String firstName;
     private String lastName;
     private String subject; // Not being used in the code and final output
-    private int courseHours; // Not being used in abstract class, but common in all current subclasses
     private int totalHours;
 
-    public Person(String title, String firstName, String lastName, String subject, int courseHours) {
-        this.title = title;
+    // Instantiating constructor for subclass
+    public Person(String firstName, String lastName, String subject) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.subject = subject;
-        this.courseHours = courseHours;
+        this.totalHours = 0;
     }
-    
-    // Include enough getters for attributes that are needed by other classes
+
+    // Adding necessary getters for attributes that are needed by other classes
+    // Set up an abstract method since each Person will have a different title
+    public abstract String getTitle();
+
     public String getFirstName() {
         return firstName;
     }
-    
+
     public String getLastName() {
         return lastName;
     }
+    
+    public int getTotalHours() {
+        return totalHours;
+    }
 
-    public static int getLabHours(int courseHours) {
+    // Uses a ternary operator to satisfy project requirement;
+    // courseHours is more that 4 hours, the lab hours will be 2; otherwise it will be 1
+    public int getLabHours(int courseHours) {
         return courseHours > 4 ? 2 : 1;
+    }
+    // this method will be used to accumulate in the main class for the subclasses
+    public void addCourseHours(int courseHours) {
+        this.totalHours += getParticipatingHours(courseHours);
     }
 
     @Override
@@ -36,16 +49,8 @@ public abstract class Person implements ParticipateHours {
         return courseHours;
     }
 
-    public int getTotalHours() {
-        return totalHours;
-    }
-
-    public void setTotalHours(int courseHours) {
-        this.totalHours += getParticipatingHours(courseHours);
-    }
-
     public String toString() {
-        return title + " - " + firstName + " " + lastName + " - Total hours -> "
+        return getTitle() + " - " + firstName + " " + lastName + " - Total hours -> "
                 + getTotalHours();
     }
 

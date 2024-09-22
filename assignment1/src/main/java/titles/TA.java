@@ -1,13 +1,20 @@
 package titles;
 
 public class TA extends Person {
-    int totalHours;
 
-    public TA(String title, String firstName, String lastName, String subject, int courseHours) {
-        super(title, firstName, lastName, subject, courseHours);
-        super.setTotalHours(courseHours);
+    public TA(String firstName, String lastName, String subject) {
+        super(firstName, lastName, subject);
+    }
+    
+    // Override abstract method from superclass
+    @Override
+    public String getTitle() {
+        return "TA";
     }
 
+    // Override implemented method from ParticipateHours->Person
+    // TA hours are just lab hours based on courseHours
+    @Override
     public int getParticipatingHours(int courseHours) {
         return getLabHours(courseHours);
     }

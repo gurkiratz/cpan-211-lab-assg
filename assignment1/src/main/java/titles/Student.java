@@ -1,15 +1,14 @@
 package titles;
 
 public class Student extends Person {
-    private int totalHours;
 
-    public Student(String title, String firstName, String lastName, String subject, int courseHours) {
-        super(title, firstName, lastName, subject, courseHours);
-        super.setTotalHours(courseHours);
+    public Student(String firstName, String lastName, String subject) {
+        super(firstName, lastName, subject);
     }
-
-    public int getParticipatingHours(int courseHours) {
-        return courseHours;
+    
+    // Override abstract method from superclass
+    @Override
+    public String getTitle() {
+        return "Student";
     }
-
 }
