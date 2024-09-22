@@ -5,15 +5,13 @@ import assignment_one.ParticipateHours;
 public abstract class Person implements ParticipateHours {
     
     // Declaring variables as private for encapsulation purposes
-    private String title;
     private String firstName;
     private String lastName;
     private String subject; // Not being used in the code and final output
     private int totalHours;
 
     // Instantiating constructor for subclass
-    public Person(String title, String firstName, String lastName, String subject) {
-        this.title = title;
+    public Person(String firstName, String lastName, String subject) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.subject = subject;

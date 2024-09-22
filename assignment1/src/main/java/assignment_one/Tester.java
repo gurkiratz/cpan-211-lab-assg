@@ -39,17 +39,17 @@ public class Tester {
             if (!found) {
                 switch (title) {
                     case "Professor":
-                        people[count] = new Professor(title, firstName, lastName, subject);
+                        people[count] = new Professor(firstName, lastName, subject);
                         people[count].addCourseHours(courseHours); 
                         count++;
                         break;
                     case "TA":
-                        people[count] = new TA(title, firstName, lastName, subject);
+                        people[count] = new TA(firstName, lastName, subject);
                         people[count].addCourseHours(courseHours); 
                         count++;
                         break;
                     case "Student":
-                        people[count] = new Student(title, firstName, lastName, subject);
+                        people[count] = new Student(firstName, lastName, subject);
                         people[count].addCourseHours(courseHours); 
                         count++;
                         break;

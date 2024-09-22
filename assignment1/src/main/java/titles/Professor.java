@@ -2,8 +2,8 @@ package titles;
 
 public class Professor extends Person {
 
-    public Professor(String title, String firstName, String lastName, String subject) {
-        super(title, firstName, lastName, subject);
+    public Professor(String firstName, String lastName, String subject) {
+        super(firstName, lastName, subject);
     }
 
     // Override abstract method from superclass
