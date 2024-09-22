@@ -2,10 +2,11 @@ package titles;
 
 public class TA extends Person {
 
-    public TA(String firstName, String lastName, String subject) {
+    public TA(String firstName, String lastName, String subject, int courseHours) {
         super(firstName, lastName, subject);
+        super.addTotalHours(courseHours);
     }
-    
+
     // Override abstract method from superclass
     @Override
     public String getTitle() {
