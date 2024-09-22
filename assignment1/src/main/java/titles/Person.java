@@ -36,7 +36,7 @@ public abstract class Person implements ParticipateHours {
 
     // Uses a ternary operator to satisfy project requirement;
     // courseHours is more that 4 hours, the lab hours will be 2; otherwise it will be 1
-    public static int getLabHours(int courseHours) {
+    public int getLabHours(int courseHours) {
         return courseHours > 4 ? 2 : 1;
     }
     // this method will be used to accumulate in the main class for the subclasses
