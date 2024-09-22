@@ -1,7 +1,6 @@
 package assignment_one;
 
 public interface ParticipateHours {
-    //declaring an instance method
-
+    // This method can be implemented by any class
     int getParticipatingHours(int courseHours);
 }

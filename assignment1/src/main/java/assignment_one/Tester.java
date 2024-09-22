@@ -10,7 +10,7 @@ public class Tester {
 
     public static void main(String[] args) {
         String currentDirectory = Paths.get("").toAbsolutePath().toString();
-        String filename = "assignment1/src/main/java/assignment_one/titles.csv";
+        String filename = "/src/main/java/assignment_one/titles.csv";
         Path filePath = Paths.get(currentDirectory, filename);
         String[][] parsedData = CsvParser.parseCsv(filePath.toString());
 
