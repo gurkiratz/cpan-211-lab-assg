@@ -11,11 +11,4 @@ public class Student extends Person {
     public String getTitle() {
         return "Student";
     }
-    
-    // Override implemented method from ParticipateHours->Person
-    // Student hours are just course hours
-    @Override
-    public int getParticipatingHours(int courseHours) {
-        return courseHours; 
-    }
 }
