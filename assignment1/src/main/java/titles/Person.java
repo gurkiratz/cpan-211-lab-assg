@@ -3,7 +3,7 @@ package titles;
 import assignment_one.ParticipateHours;
 
 public abstract class Person implements ParticipateHours {
-    
+
     // Declaring variables as private for encapsulation purposes
     private String firstName;
     private String lastName;
@@ -29,18 +29,20 @@ public abstract class Person implements ParticipateHours {
     public String getLastName() {
         return lastName;
     }
-    
+
     public int getTotalHours() {
         return totalHours;
     }
 
     // Uses a ternary operator to satisfy project requirement;
-    // courseHours is more that 4 hours, the lab hours will be 2; otherwise it will be 1
+    // courseHours is more that 4 hours, the lab hours will be 2; otherwise it will
+    // be 1
     public int getLabHours(int courseHours) {
         return courseHours > 4 ? 2 : 1;
     }
+
     // this method will be used to accumulate in the main class for the subclasses
-    public void addCourseHours(int courseHours) {
+    public void addTotalHours(int courseHours) {
         this.totalHours += getParticipatingHours(courseHours);
     }
 
@@ -49,6 +51,7 @@ public abstract class Person implements ParticipateHours {
         return courseHours;
     }
 
+    // Override toString method to print the final output
     public String toString() {
         return getTitle() + " - " + firstName + " " + lastName + " - Total hours -> "
                 + getTotalHours();
